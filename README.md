@@ -1,11 +1,15 @@
-# Website
+# 我的个人博客
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+这是我的个人博客网站，使用 [Docusaurus](https://docusaurus.io/) 构建，一个现代化的静态网站生成器。
 
-### Installation
+### 在线访问
 
-```
-$ yarn
+博客已部署在 Vercel 上，访问地址：[https://caijiale.vercel.app/](https://caijiale.vercel.app/)
+
+### 安装
+
+```bash
+npm install
 ```
 
 ### Local Development
