@@ -81,7 +81,7 @@ const config = {
             items: [
               {
                 label: '邮箱',
-                href: '1018831638@qq.com',
+                href: 'mailto:1018831638@qq.com', // 添加 mailto: 前缀
               },
             ],
           },
