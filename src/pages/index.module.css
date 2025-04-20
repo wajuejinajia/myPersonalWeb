@@ -4,20 +4,216 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
+  padding: 6rem 0;
+  text-align: left;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(to right, #f5f5f7, #ffffff);
+  color: #1d1d1f;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.headerText {
+  flex: 1;
+}
+
+.headerImage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileImageHeader {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  animation: float 6s ease-in-out infinite;
+}
+
+.profileImageHeader:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Apple 风格的部分 */
+.appleSection {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.grayBg {
+  background-color: #f5f5f7;
+}
+
+.appleHeadline {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.appleHeadline h2 {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #1d1d1f;
+}
+
+.appleSubtitle {
+  font-size: 24px;
+  line-height: 1.5;
+  color: #86868b;
+  margin-bottom: 40px;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.featureItem {
+  padding: 30px;
+  border-radius: 18px;
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featureItem:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.featureIcon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.featureItem h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #1d1d1f;
+}
+
+.featureItem p {
+  color: #86868b;
+}
+
+.hobbyGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.hobbyItem {
+  padding: 30px;
+  border-radius: 18px;
+  background-color: #f5f5f7;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hobbyItem:hover {
+  transform: translateY(-10px);
+  background-color: #e8e8ed;
+}
+
+.hobbyIcon {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.hobbyItem p {
+  color: #1d1d1f;
+  font-size: 18px;
+}
+
+/* 动画效果 */
+.animatedTitle {
+  animation: fadeInLeft 1s ease-out;
+}
+
+.animatedSubtitle {
+  animation: fadeInLeft 1s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.fadeIn {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 996px) {
+  .headerContent {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .headerText {
+    margin-bottom: 40px;
+  }
+  
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hobbyGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .hobbyGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .appleHeadline h2 {
+    font-size: 36px;
+  }
+  
+  .appleSubtitle {
+    font-size: 18px;
+  }
 }

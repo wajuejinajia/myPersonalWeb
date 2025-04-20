@@ -8,12 +8,12 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Personal Blog',
-  tagline: 'Jiale Cai',
+  title: 'Cai Jiale',
+  tagline: 'Movier | Coder | Footballer',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://your-personal-site.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -39,20 +39,10 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
-          sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
+        // 禁用文档功能
+        docs: false,
+        // 禁用博客功能
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -66,21 +56,14 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'My Site',
+        title: '蔡家乐',
         logo: {
-          alt: 'My Site Logo',
+          alt: '个人主页 Logo',
           src: 'img/logo.svg',
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Tutorial',
-          },
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/wajuejinajia',
             label: 'GitHub',
             position: 'right',
           },
@@ -94,46 +77,29 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: '联系方式',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: '邮箱',
+                href: '1018831638@qq.com',
               },
             ],
           },
           {
-            title: 'Community',
+            title: '社交媒体',
             items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/wajuejinajia',
+              },
+              {
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/%E5%AE%B6%E4%B9%90-%E8%94%A1-5b8130340/',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} 蔡佳乐的个人网站. 基于 Docusaurus 构建.`,
       },
       prism: {
         theme: prismThemes.github,
