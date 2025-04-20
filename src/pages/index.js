@@ -17,7 +17,7 @@ function HomepageHeader() {
           </div>
           <div className={styles.headerImage}>
             <img 
-              src="/img/IMG_8029.jpg" 
+              src="/img/ChatGPT Image 2025年4月1日 10_31_41.png" 
               alt="蔡家乐的照片" 
               className={styles.profileImageHeader}
             />

@@ -99,7 +99,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} 蔡佳乐的个人网站. 基于 Docusaurus 构建.`,
+        copyright: `Copyright © ${new Date().getFullYear()} 蔡家乐的个人网站. 基于 Docusaurus 构建.`,
       },
       prism: {
         theme: prismThemes.github,
