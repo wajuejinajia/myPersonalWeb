@@ -125,21 +125,40 @@
 
 .hobbyGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr); /* 从 5 改为 4 */
   gap: 30px;
   margin-top: 60px;
 }
 
 .hobbyItem {
-  padding: 30px;
+  padding: 35px;
   border-radius: 18px;
   background-color: #f5f5f7;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease; /* 添加 box-shadow 过渡 */
+  position: relative;
+  /* overflow: hidden; */ /* 移除 overflow: hidden */
+  min-height: 150px;
+  cursor: pointer; /* 添加指针样式 */
+  border: 3px solid transparent; /* 添加透明边框占位 */
 }
+
+/* 移除旧的 .hobbyDetails 和 @keyframes slideUp */
+/* .hobbyDetails { ... } */
+/* @keyframes slideUp { ... } */
 
 .hobbyItem:hover {
   transform: translateY(-10px);
   background-color: #e8e8ed;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* 添加悬停阴影 */
+}
+
+/* 新增：选中状态的样式 */
+.hobbyItemSelected {
+  border-color: var(--ifm-color-primary); /* 高亮边框 */
+  background-color: #e0e0e5; /* 稍微不同的背景色 */
+  transform: translateY(-5px); /* 轻微上移 */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .hobbyIcon {
@@ -150,6 +169,219 @@
 .hobbyItem p {
   color: #1d1d1f;
   font-size: 18px;
+}
+
+/* 新增：爱好详情区域样式 */
+.hobbyDetailSection {
+  margin-top: 60px;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+.hobbyDetailSection h3 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* 通用详情内容布局 */
+.hobbyDetailContent {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.hobbyDetailImage {
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hobbyDetailList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.hobbyDetailList li {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 12px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.hobbyDetailList li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--ifm-color-primary);
+  font-weight: bold;
+}
+
+/* 新增：电影详情网格样式 */
+.movieGrid {
+  width: 100%;
+}
+
+.movieGrid h4 {
+  font-size: 22px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.moviePosters {
+  display: grid;
+  /* 尝试每行放 3-4 个海报，根据需要调整 */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px; /* 海报间距 */
+}
+
+.movieItem {
+  text-align: center;
+  background-color: #f9f9f9; /* 轻微背景色 */
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movieItem:hover {
+  transform: translateY(-8px) scale(1.03); /* 海报悬停效果 */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.moviePosterImage {
+  width: 100%;
+  max-width: 200px; /* 限制海报最大宽度 */
+  height: auto;
+  aspect-ratio: 2 / 3; /* 保持海报比例 */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 轻微图片阴影 */
+}
+
+.movieTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+/* --- 移除或注释掉之前的旅行地图样式 --- */
+/*
+.travelDetailMapContainer { ... }
+.mapWrapper { ... }
+.travelMapImage { ... }
+.cityMarker { ... }
+.markerTooltip { ... }
+*/
+/* --- 结束移除 --- */
+
+/* --- 新增：旅行图片网格样式 --- */
+.travelGrid {
+  width: 100%;
+}
+
+.travelGrid h4 {
+  font-size: 22px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.placePhotos {
+  display: grid;
+  /* 每行显示 3-4 张照片，根据需要调整 */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px; /* 照片间距 */
+}
+
+.placeItem {
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* 防止图片溢出圆角 */
+}
+
+.placeItem:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.placePhotoImage {
+  width: 100%;
+  height: 180px; /* 固定高度或使用 aspect-ratio */
+  /* aspect-ratio: 16 / 9; */ /* 例如 16:9 的比例 */
+  object-fit: cover; /* 裁剪图片以填充容器 */
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.placeName {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+/* --- 结束：旅行图片网格样式 --- */
+
+/* 响应式调整 */
+@media screen and (max-width: 768px) {
+  .hobbyDetailContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hobbyDetailImage {
+    max-width: 80%;
+    margin-bottom: 30px;
+  }
+
+  .hobbyDetailList li {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .hobbyDetailList li::before {
+    display: none;
+  }
+
+  /* 调整电影网格在小屏幕上的列数 */
+  .moviePosters {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .moviePosters {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+  }
+  .movieItem {
+    padding: 10px;
+  }
+  .movieTitle {
+    font-size: 14px;
+  }
 }
 
 /* 动画效果 */
@@ -190,30 +422,436 @@
     flex-direction: column;
     text-align: center;
   }
-  
+
   .headerText {
     margin-bottom: 40px;
   }
-  
+
   .featureGrid {
     grid-template-columns: 1fr;
   }
-  
+
   .hobbyGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* 保持不变 */
   }
 }
 
 @media screen and (max-width: 576px) {
   .hobbyGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr); /* 保持不变 */
   }
-  
+
   .appleHeadline h2 {
     font-size: 36px;
   }
-  
+
   .appleSubtitle {
     font-size: 18px;
+  }
+}
+
+/* 调整响应式设计中的详情区域 */
+@media screen and (max-width: 768px) {
+  .hobbyDetailContent {
+    flex-direction: column; /* 在小屏幕上垂直排列 */
+    align-items: center; /* 居中对齐 */
+    text-align: center; /* 文本居中 */
+  }
+
+  .hobbyDetailImage {
+    max-width: 80%; /* 调整图片宽度 */
+    margin-bottom: 30px;
+  }
+
+  .hobbyDetailList li {
+    padding-left: 0; /* 移除小屏幕上的内边距 */
+    text-align: center;
+  }
+
+  .hobbyDetailList li::before {
+    display: none; /* 隐藏小屏幕上的图标 */
+  }
+}
+
+/* --- 新增：读书网格样式 --- */
+.readingGrid {
+  width: 100%;
+}
+
+.readingGrid h4 {
+  font-size: 22px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.bookCovers {
+  display: grid;
+  /* 每行显示 4-5 本书，根据需要调整 */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px; /* 书籍间距 */
+}
+
+.bookItem {
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; /* 使用 flex 布局方便垂直排列 */
+  flex-direction: column; /* 垂直排列 */
+  justify-content: space-between; /* 内容上下分布 */
+}
+
+.bookItem:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bookCoverImage {
+  width: 100%;
+  max-width: 150px; /* 限制封面最大宽度 */
+  height: auto;
+  aspect-ratio: 2 / 3; /* 保持书籍封面常见比例 */
+  object-fit: cover;
+  border-radius: 4px; /* 书籍封面通常棱角分明些 */
+  margin: 0 auto 10px auto; /* 居中并添加底部间距 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.bookTitle {
+  font-size: 15px;
+  font-weight: 600; /* 标题加粗 */
+  color: #333;
+  margin: 5px 0 2px 0; /* 调整间距 */
+  line-height: 1.3;
+}
+
+.bookAuthor {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+  line-height: 1.3;
+}
+/* --- 结束：读书网格样式 --- */
+
+/* 响应式调整 */
+@media screen and (max-width: 768px) {
+  /* 调整书籍网格在小屏幕上的列数和间距 */
+  .bookCovers {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .bookCovers {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+  }
+  .bookItem {
+    padding: 10px;
+  }
+  .bookTitle {
+    font-size: 14px;
+  }
+  .bookAuthor {
+    font-size: 12px;
+  }
+}
+
+/* --- 新增：足球详情布局样式 --- */
+.footballDetailLayout {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* 垂直排列两行 */
+  gap: 30px; /* 行间距 */
+  align-items: center; /* 整体居中对齐 */
+}
+
+.footballRow {
+  display: flex;
+  justify-content: center; /* 行内内容居中 */
+  gap: 40px; /* 项目间距 */
+  width: 100%;
+  flex-wrap: wrap; /* 允许换行 */
+}
+
+.footballItem,
+.footballItemFull {
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1; /* 尝试平均分配空间 */
+  min-width: 250px; /* 最小宽度 */
+  max-width: 400px; /* 最大宽度 */
+}
+
+.footballItemFull {
+  flex-basis: 100%; /* 第二行占满整行宽度 */
+  max-width: 600px; /* 可以给第二行设置一个不同的最大宽度 */
+}
+
+.footballItem:hover,
+.footballItemFull:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+}
+
+.footballItem h4,
+.footballItemFull h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ifm-color-primary); /* 使用主题色 */
+  margin-bottom: 15px;
+}
+
+.footballItem p,
+.footballItemFull p {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+}
+
+.teamLogo {
+  max-width: 80px; /* 限制队徽大小 */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* 如果添加球员照片，可以设置样式 */
+.playerPhoto {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 3px solid var(--ifm-color-primary-lightest);
+}
+
+/* --- 结束：足球详情布局样式 --- */
+
+/* 响应式调整 */
+@media screen and (max-width: 768px) {
+  .hobbyDetailContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hobbyDetailImage {
+    max-width: 80%;
+    margin-bottom: 30px;
+  }
+
+  .hobbyDetailList li {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .hobbyDetailList li::before {
+    display: none;
+  }
+
+  /* 调整电影网格在小屏幕上的列数 */
+  .moviePosters {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .moviePosters {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+  }
+  .movieItem {
+    padding: 10px;
+  }
+  .movieTitle {
+    font-size: 14px;
+  }
+}
+
+/* 动画效果 */
+.animatedTitle {
+  animation: fadeInLeft 1s ease-out;
+}
+
+.animatedSubtitle {
+  animation: fadeInLeft 1s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.fadeIn {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 996px) {
+  .headerContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .headerText {
+    margin-bottom: 40px;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .hobbyGrid {
+    grid-template-columns: repeat(3, 1fr); /* 保持不变 */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .hobbyGrid {
+    grid-template-columns: repeat(2, 1fr); /* 保持不变 */
+  }
+
+  .appleHeadline h2 {
+    font-size: 36px;
+  }
+
+  .appleSubtitle {
+    font-size: 18px;
+  }
+}
+
+/* 调整响应式设计中的详情区域 */
+@media screen and (max-width: 768px) {
+  .hobbyDetailContent {
+    flex-direction: column; /* 在小屏幕上垂直排列 */
+    align-items: center; /* 居中对齐 */
+    text-align: center; /* 文本居中 */
+  }
+
+  .hobbyDetailImage {
+    max-width: 80%; /* 调整图片宽度 */
+    margin-bottom: 30px;
+  }
+
+  .hobbyDetailList li {
+    padding-left: 0; /* 移除小屏幕上的内边距 */
+    text-align: center;
+  }
+
+  .hobbyDetailList li::before {
+    display: none; /* 隐藏小屏幕上的图标 */
+  }
+}
+
+/* --- 新增：读书网格样式 --- */
+.readingGrid {
+  width: 100%;
+}
+
+.readingGrid h4 {
+  font-size: 22px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.bookCovers {
+  display: grid;
+  /* 每行显示 4-5 本书，根据需要调整 */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px; /* 书籍间距 */
+}
+
+.bookItem {
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; /* 使用 flex 布局方便垂直排列 */
+  flex-direction: column; /* 垂直排列 */
+  justify-content: space-between; /* 内容上下分布 */
+}
+
+.bookItem:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bookCoverImage {
+  width: 100%;
+  max-width: 150px; /* 限制封面最大宽度 */
+  height: auto;
+  aspect-ratio: 2 / 3; /* 保持书籍封面常见比例 */
+  object-fit: cover;
+  border-radius: 4px; /* 书籍封面通常棱角分明些 */
+  margin: 0 auto 10px auto; /* 居中并添加底部间距 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.bookTitle {
+  font-size: 15px;
+  font-weight: 600; /* 标题加粗 */
+  color: #333;
+  margin: 5px 0 2px 0; /* 调整间距 */
+  line-height: 1.3;
+}
+
+.bookAuthor {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+  line-height: 1.3;
+}
+/* --- 结束：读书网格样式 --- */
+
+/* 响应式调整 */
+@media screen and (max-width: 768px) {
+  /* 调整书籍网格在小屏幕上的列数和间距 */
+  .bookCovers {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .bookCovers {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+  }
+  .bookItem {
+    padding: 10px;
+  }
+  .bookTitle {
+    font-size: 14px;
+  }
+  .bookAuthor {
+    font-size: 12px;
   }
 }
